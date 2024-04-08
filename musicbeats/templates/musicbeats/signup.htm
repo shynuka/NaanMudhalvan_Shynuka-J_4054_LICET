@@ -1,0 +1,107 @@
+{% extends 'musicbeats/basic.htm' %}
+{% block title %}SignUp{% endblock %}
+
+{% block body %}
+<style>
+    body {
+        background-image: url('https://www.rollingstone.com/wp-content/uploads/2021/09/RS_500_Great_Songs_1800x1200.jpg?w=1581&h=1054&crop=1');
+        background-color: #000; /* Set body background color to black */
+        color: #fff; /* Set text color to white */
+    }
+
+    .card {
+        margin-top: 50px;
+        background-color: rgba(0, 0, 0, 0.5); /* Set background color to transparent black */
+        color: #fff; /* Set text color to white */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .card-title {
+        color: #fff; /* Set title color to white */
+    }
+
+    .form-group label {
+        color: #fff; /* Set label color to white */
+    }
+
+    .form-control {
+        color: #333;
+    }
+
+    .form-control::placeholder {
+        color: #333;
+        opacity: 1;
+    }
+
+    .form-control:focus {
+        color: #333;
+        background-color: #fff;
+        border-color: #333;
+    }
+
+    .btn-primary {
+        color: #fff;
+        background-color: #333;
+        border-color: #333;
+    }
+
+    .btn-primary:hover,
+    .btn-primary:active,
+    .btn-primary:focus {
+        background-color: #555;
+        border-color: #555;
+    }
+
+    .name-label {
+        color: #fff;
+    }
+</style>
+
+<div class="container my-4">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title text-center">SIGN UP TO YOUR ACCOUNT</h5>
+                    <form method="POST" action="/musicbeats/signup">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="email">Email address</label>
+                            <input type="email" class="form-control" id="email" placeholder="name@example.com" name="email">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="username">Username</label>
+                            <input type="text" class="form-control" id="username" name="username">
+                        </div>
+                    
+                        <div class="form-row">
+                            <div class="col">
+                                <label for="firstname" class="name-label">First Name</label>
+                                <input type="text" class="form-control" id="firstname" name="firstname">
+                            </div>
+                            <div class="col">
+                                <label for="lastname" class="name-label">Last Name</label>
+                                <input type="text" class="form-control" id="lastname" name="lastname">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" class="form-control" id="password" name="pass1">
+                        </div>
+                    
+                        <div class="form-group">
+                            <label for="confirm-password">Confirm Password</label>
+                            <input type="password" class="form-control" id="confirm-password" name="pass2">
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary">Sign Up</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
